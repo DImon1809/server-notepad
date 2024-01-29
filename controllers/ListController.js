@@ -76,7 +76,7 @@ module.exports = class ListController {
       const { userId } = req.user;
       const idElem = req.params.id;
 
-      const response = await List.findOneAndDelete(idElem);
+      const response = await List.findByIdAndDelete(idElem);
 
       if (!response)
         return res.status(400).json({ message: "Что-то пошло не так!" });
